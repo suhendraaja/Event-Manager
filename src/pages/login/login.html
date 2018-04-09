@@ -19,10 +19,10 @@
       <ion-input formControlName="password" type="password" placeholder="Password anda" [class.invalid]="!loginForm.controls.password.valid && blur"></ion-input>
     </ion-item>
     <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid && loginForm.controls.password.touched">
-      <p>Isikan password lebih dari 6 karakter!</p>
+      <p>Isikan password lebih dari 8 karakter!</p>
     </ion-item>
 
-    <button ion-button block type="submit">
+    <button ion-button block type="submit" [disabled]="!loginForm.valid">
       Login
     </button>    
   </form>
