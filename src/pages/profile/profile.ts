@@ -17,14 +17,14 @@ export class ProfilePage {
     public navParams: NavParams,
     public alertCtrl: AlertController,
     public authProvider: AuthProvider,
-    public profileProfider: ProfileProvider) {
+    public profileProvider: ProfileProvider) {
   }
 
   ionViewDidLoad() {      // function yg otomatis dikerjakan oleh browser
     console.log('ionViewDidLoad ProfilePage');
 
     // cek userProfile dari firebase
-    this.profileProfider.getUserProfile()
+    this.profileProvider.getUserProfile()
       .on('value', userProfileSnapshot => {
         this.userProfile = userProfileSnapshot.val();
       });
