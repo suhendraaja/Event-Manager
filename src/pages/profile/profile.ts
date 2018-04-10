@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { ProfileProvider } from '../../providers/profile/profile';
+import { AuthProvider } from '../../providers/auth/auth';
+import { Alert, AlertController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -14,12 +10,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'profile.html',
 })
 export class ProfilePage {
+  public userProfile: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public alertCtrl: AlertController,
+    public authProvider: AuthProvider,
+    public profileProfider: ProfileProvider) {
   }
 
-  ionViewDidLoad() {
+  ionViewDidLoad() {      // function yg otomatis dikerjakan oleh browser
     console.log('ionViewDidLoad ProfilePage');
+
+    // cek userProfile dari firebase
+    this.profileProfider.getUserProfile()
+      .on('value', userProfileSnapshot => {
+        this.userProfile = userProfileSnapshot.val();
+      });
+  }
+
+  // proses logout
+  logOut(): void {
+    this.authProvider.logoutUser().then(() => {
+      this.navCtrl.setRoot('LoginPage');
+    });
   }
 
 }

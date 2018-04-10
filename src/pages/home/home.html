@@ -1,14 +1,25 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Halaman Utama
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToProfile()">
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <h5>Aplikasi Managemen Kegiatan</h5>
+  <hr>
+
+  <button ion-button block color="color1" (click)="goToCreate()">
+    Buat Event Baru
+  </button>
+
+  <button ion-button block color="color2" (click)="goToList()">
+    Lihat Daftar Event
+  </button>
 </ion-content>
