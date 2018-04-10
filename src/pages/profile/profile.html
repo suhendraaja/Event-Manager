@@ -3,7 +3,8 @@
     <ion-title>Profile User</ion-title>
     <ion-buttons end>
       <button ion-button icon-only (click)="logOut()">
-        <ion-icon name="log-out"></ion-icon>
+
+        <img src="../../assets/imgs/exit.png" width="32" height="32" />
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -15,15 +16,34 @@
       User Personal Information
     </ion-list-header>
 
+    <ion-item (click)="updateName()">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-6> Nama Lengkap </ion-col>
+          <ion-col col-6 *ngIf="userProfile?.firstName || userProfile?.lastName">
+            {{userProfile?.firstName}} {{userProfile?.lastName}}
+          </ion-col>
+          <ion-col col-4 class="placeholder-profile" *ngIf="!userProfile?.firstName">
+            <span> Tap untuk edit. </span>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
     <ion-item>
       <ion-grid>
         <ion-row>
-          <ion-col col-6>Email</ion-col>
+          <ion-col col-4>Email</ion-col>
           <ion-col col-6 *ngIf="userProfile?.email">
             {{userProfile?.email}}
           </ion-col>
         </ion-row>
       </ion-grid>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Tanggal Lahir</ion-label>
+      <ion-datetime displayFormat="D MMMM, YYYY" pickerFormat="D MMM YYYY" [(ngModel)]="birthDate"></ion-datetime>
     </ion-item>
   </ion-list>
 </ion-content>
