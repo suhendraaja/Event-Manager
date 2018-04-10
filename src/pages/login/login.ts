@@ -42,9 +42,9 @@ export class LoginPage {
   // proses login user
   loginUser() {
     // cek apakah email dan password sudah valid
-    if (!this.loginForm.valid) {
+    if (!this.loginForm.valid) {      // jika tidak valid
       console.log(`Form tidak valid: ${this.loginForm.value}`);
-    } else {
+    } else {      // jika sudah valid
       // baca formControlName dahulu
       const email = this.loginForm.value.email;
       const password = this.loginForm.value.password;
@@ -72,6 +72,16 @@ export class LoginPage {
       this.loading = this.loadingCtrl.create();
       this.loading.present();
     }
+  }
+
+  // membuka form signup
+  goToSignup(): void {
+    this.navCtrl.push('SignupPage');
+  }
+
+  // membuka form reset password
+  goToResetPassword(): void {
+    this.navCtrl.push('ResetPasswordPage');
   }
 
   ionViewDidLoad() {
