@@ -26,7 +26,7 @@
 
     <button ion-button block type="submit" [disabled]="!loginForm.valid">
       Login
-    </button>    
+    </button>
   </form>
 
   <button ion-button block clear (click)="goToSignup()">
@@ -36,4 +36,11 @@
   <button ion-button block clear (click)="goToResetPassword()">
     Lupa Password
   </button>
+
+  <ion-buttons end>
+    <button ion-button block color="danger" (click)="goToLoginGoogle()">
+      <ion-icon name="logo-googleplus"></ion-icon>
+      Login with Google
+    </button>
+  </ion-buttons>
 </ion-content>

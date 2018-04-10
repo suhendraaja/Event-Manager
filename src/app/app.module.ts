@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../providers/auth/auth';
 import { ProfileProvider } from '../providers/profile/profile';
 import { EventProvider } from '../providers/event/event';
+import { GooglePlus } from '@ionic-native/google-plus';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EventProvider } from '../providers/event/event';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     ProfileProvider,
-    EventProvider
+    EventProvider,
+    GooglePlus
   ]
 })
 export class AppModule {}
