@@ -17,6 +17,16 @@ export class MyApp {
     splashScreen: SplashScreen) {
 
     platform.ready().then(() => {     // Promise
+      // akses OneSignal
+      var notificationOpenedCallback = function(jsonData) {
+        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+      };
+  
+      window["plugins"].OneSignal
+        .startInit("186c67e8-fb18-47c7-9950-afb244a3aaad", "529154349639")
+        .handleNotificationOpened(notificationOpenedCallback)
+        .endInit();
+
       // membaca API key dari firebase untuk pertama kali aplikasi dijalankan
       firebase.initializeApp(firebaseConfig);
       
