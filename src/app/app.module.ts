@@ -11,6 +11,7 @@ import { ProfileProvider } from '../providers/profile/profile';
 import { EventProvider } from '../providers/event/event';
 import { GooglePlus } from '@ionic-native/google-plus';
 import { Camera } from '@ionic-native/camera';
+import { OneSignal } from '@ionic-native/onesignal';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { Camera } from '@ionic-native/camera';
     ProfileProvider,
     EventProvider,
     GooglePlus,
-    Camera
+    Camera,
+    OneSignal
   ]
 })
 export class AppModule {}
