@@ -6,7 +6,7 @@
 
 <ion-content padding>
 <ion-list>
-  <ion-item *ngFor="let event of eventList" (click)="goToEventDetail(eventId)">
+  <ion-item *ngFor="let event of eventList" (click)="goToEventDetail(event.id)">
     <h3>{{event?.name}}</h3>
     <p>
       Harga Tiket :
