@@ -43,4 +43,34 @@ export class EventProvider {
     return this.eventListRef.child(eventId);
   }
 
+  // menambahkan peserta baru
+  addGuest(
+    guestName: string,
+    eventId: string,
+    eventPrice: number,
+    guestPicture: string = null
+  ): PromiseLike<any> {
+    return this.eventListRef
+      .child(`${eventId}/guestList`)
+      .push({ guestName })
+      .then(newGuest => {
+        this.eventListRef.child(eventId).transaction(event => {
+          //event.price = event.price;
+          return event;
+        });
+        if(guestPicture != null){
+          firebase.storage()
+            .ref(`/guestProfile/${newGuest.key}/profilePicture.png`)
+            .putString(guestPicture, 'base64', {
+              contentType: 'image/png'
+            })
+            .then(savedPicture => {
+              this.eventListRef
+                .child(`${eventId}/guestList/${newGuest.key}/profilePicture`)
+                .set(savedPicture.downloadURL);
+            });
+        }
+      });
+  }
+
 }

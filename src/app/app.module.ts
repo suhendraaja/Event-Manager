@@ -10,6 +10,7 @@ import { AuthProvider } from '../providers/auth/auth';
 import { ProfileProvider } from '../providers/profile/profile';
 import { EventProvider } from '../providers/event/event';
 import { GooglePlus } from '@ionic-native/google-plus';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { GooglePlus } from '@ionic-native/google-plus';
     AuthProvider,
     ProfileProvider,
     EventProvider,
-    GooglePlus
+    GooglePlus,
+    Camera
   ]
 })
 export class AppModule {}
