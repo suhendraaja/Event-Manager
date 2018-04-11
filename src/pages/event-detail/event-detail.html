@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-header>
+  <ion-card (click)="updateEventDetail()">
+    <ion-card-header *ngIf="currentEvent?.name">
       {{currentEvent?.name}}
     </ion-card-header>
     <ion-card-content>
